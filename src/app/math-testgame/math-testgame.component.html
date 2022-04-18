@@ -1,0 +1,36 @@
+
+<div class="container">
+    <h2>
+      Math Test Game
+    </h2>
+    <div class="row">
+      <div class="col-sm-1">
+        {{number1}} + {{number2}} =
+      </div>
+      <div class="col-sm-1">
+        <input class="form-control" #userInput type="number" />
+      </div>
+      <div class="col-sm-1">
+        <label *ngIf="showBanner">
+          <p [ngClass]="result == 'PASS' ? 'text-success' : 'text-danger'">{{result}}</p>
+        </label>
+      </div>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-sm-1">
+          <button class="btn btn-primary" type="submit" (click)="checkUserInput(userInput.valueAsNumber)">Check</button>
+        </div>
+        <div class="col-sm-1">
+          <button class="btn btn-dark" type="button" (click)="nextPuzzle()" [disabled]="!goNext">Next</button>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="row">
+        <p class="text-primary">{{eachTimeDisplay}}</p>
+        <p [ngClass]="totalTime <= 6 ? 'text-success' : 'text-danger'">{{averageTimeDisplay}}</p>
+      </div>
+    </div>
+  </div>
+  
